@@ -2,3 +2,48 @@
 <p>
   Start editing to see some magic happen :)
 </p>
+
+<form #exampleForm="ngForm" [appFormValidator]="exampleForm" (formSubmit)="submit()">
+  <app-input
+    class="container__input"
+    name="firstName"
+    type="text"
+    labelText="First Name"
+    [form]="exampleForm"
+    [(ngModel)]="user.firstName"
+    [required]="true">
+  </app-input>
+
+  <app-input
+    class="container__input"
+    name="lastName"
+    type="text"
+    labelText="Last Name"
+    [form]="exampleForm"
+    [(ngModel)]="user.lastName"
+    [required]="true">
+  </app-input>
+
+  <app-input
+    class="container__input"
+    name="age"
+    type="number"
+    labelText="Age"
+    [form]="exampleForm"
+    [(ngModel)]="user.age"
+    [required]="true">
+  </app-input>
+
+  <app-input
+    name="gender"
+    type="select"
+    labelText="Gender"
+    optionValueKey="id"
+    optionLabelKey="name"
+    [form]="exampleForm"
+    [(ngModel)]="user.gender"
+    [required]="true"
+    [selectOptions]="genders">
+  </app-input>
+
+</form>

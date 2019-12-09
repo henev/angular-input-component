@@ -1,12 +1,10 @@
 <div class="text-field-group {{containerClass}}">
   <div class="text-field"
     [class.is-focused]="isFocused"
-    [class.is-calendar-opened]="datepicker.opened"
     [class.is-filled]="value || value === 0"
     [class.is-disabled]="disabled"
     [class.is-invalid]="isInvalid"
-    [class.has-info-text]="infoText"
-    mat-ripple>
+    [class.has-info-text]="infoText">
 
     <!-- Text / Password input -->
     <input *ngIf="type === 'text' || type === 'password'"
@@ -97,9 +95,6 @@
     <app-validation-message name="required">This field is required</app-validation-message>
     <app-validation-message name="appMinValidator">{{labelText}} should be more than {{appMinValidator - 1}}</app-validation-message>
     <app-validation-message name="appMaxValidator">{{labelText}} should be less than {{appMaxValidator + 1}}</app-validation-message>
-    <app-validation-message name="format">Invalid date format</app-validation-message>
-    <app-validation-message name="minDate">Date should be after {{minDate}}</app-validation-message>
-    <app-validation-message name="maxDate">Date should be before {{maxDate}}</app-validation-message>
   </app-validation-messages>
 
 </div>
