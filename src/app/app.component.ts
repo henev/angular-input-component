@@ -8,12 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   name = 'Angular';
   user = {
-    firstName: '',
-    lastName: '',
+    fName: '',
+    lName: '',
     age: '',
-    gender: 1
+    gender: null
   };
-  genders = [{id: 1, name: 'Male'}, {id: 2, name: 'Female'}];
+  genders = [
+    {id: 1, name: 'Male'}, 
+    {id: 2, name: 'Female'}
+  ];
 
   submit() {
     alert('Form submitted!');

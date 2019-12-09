@@ -1,16 +1,24 @@
-<div class="text-field-group {{containerClass}}">
-  <div class="text-field"
+<div class="input-field-group {{containerClass}}">
+  <div class="input-field"
     [class.is-focused]="isFocused"
     [class.is-filled]="value || value === 0"
     [class.is-disabled]="disabled"
     [class.is-invalid]="isInvalid"
-    [class.has-info-text]="infoText">
+    [class.has-info-text]="infoText"
+    matRipple>
+
+    <label *ngIf="labelText" 
+      for="{{name}}" 
+      class="input-field__label {{labelClass}}">
+      
+      {{labelText}}
+    </label>
 
     <!-- Text / Password input -->
     <input *ngIf="type === 'text' || type === 'password'"
       #input="ngModel"
       id="{{name}}"
-      class="text-field__input {{inputClass}}"
+      class="input-field__input {{inputClass}}"
       name="{{name}}"
       type="{{type}}"
       [(ngModel)]="value"
@@ -24,7 +32,7 @@
     <input *ngIf="type === 'number'"
       #input="ngModel"
       id="{{name}}"
-      class="text-field__input text-field__input--number {{inputClass}}"
+      class="input-field__input input-field__input--number {{inputClass}}"
       name="{{name}}"
       type="number"
       min="{{appMinValidator}}"
@@ -42,7 +50,7 @@
     <textarea *ngIf="type === 'textarea'"
       #input="ngModel"
       id="{{name}}"
-      class="text-field__input text-field__input--textarea {{inputClass}}"
+      class="input-field__input input-field__input--textarea {{inputClass}}"
       name="{{name}}"
       rows="{{rows}}"
       [(ngModel)]="value"
@@ -55,15 +63,16 @@
 
     <label *ngIf="labelText" 
       for="{{name}}" 
-      class="text-field__label {{labelClass}}">
-        {{labelText}}
-      </label>
+      class="input-field__label {{labelClass}}">
+      
+      {{labelText}}
+    </label>
 
     <!-- Select input -->
     <select *ngIf="type === 'select'"
       #input="ngModel"
       id="{{name}}"
-      class="text-field__input {{inputClass}}"
+      class="input-field__input {{inputClass}}"
       name="{{name}}"
       [(ngModel)]="value"
       [required]="required"
@@ -83,8 +92,8 @@
 
     </select>
 
-    <div class="text-field__bottom-line"></div>
-    <div class="text-field__bottom-line is-active" [style.transform-origin]="bottomLineTransformOrigin"></div>
+    <div class="input-field__bottom-line"></div>
+    <div class="input-field__bottom-line is-active" [style.transform-origin]="bottomLineTransformOrigin"></div>
   </div>
 
   <div class="info-message" [hidden]="isInvalid || !infoText">

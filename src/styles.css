@@ -1,1 +1,14 @@
 /* Add application styles & imports to this file! */
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  color: rgba(0, 0, 0, .87);
+  font-family: sans-serif;
+}

@@ -1,3 +1,13 @@
 p {
   font-family: Lato;
 }
+
+.button {
+  background-color: blueviolet;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-top: 16px;
+}

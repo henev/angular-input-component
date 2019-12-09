@@ -9,10 +9,11 @@ import { MinValidatorDirective } from './validators/min-validator.directive';
 import { ValidationMessagesComponent } from './validation-messages/validation-messages.component';
 import { ValidationMessageComponent } from './validation-messages/validation-message.component';
 
-
-
 @NgModule({
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule, 
+    FormsModule
+  ],
   declarations: [
     InputComponent,
     FormValidatorDirective,

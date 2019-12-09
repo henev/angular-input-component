@@ -1,26 +1,23 @@
 <hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
 
 <form #exampleForm="ngForm" [appFormValidator]="exampleForm" (formSubmit)="submit()">
   <app-input
     class="container__input"
-    name="firstName"
+    name="fName"
     type="text"
     labelText="First Name"
     [form]="exampleForm"
-    [(ngModel)]="user.firstName"
+    [(ngModel)]="user.fName"
     [required]="true">
   </app-input>
 
   <app-input
     class="container__input"
-    name="lastName"
+    name="lName"
     type="text"
     labelText="Last Name"
     [form]="exampleForm"
-    [(ngModel)]="user.lastName"
+    [(ngModel)]="user.lName"
     [required]="true">
   </app-input>
 
@@ -29,6 +26,9 @@
     name="age"
     type="number"
     labelText="Age"
+    infoText="Select age between 18 - 99"
+    [appMinValidator]="18"
+    [appMaxValidator]="99"
     [form]="exampleForm"
     [(ngModel)]="user.age"
     [required]="true">
@@ -45,5 +45,7 @@
     [required]="true"
     [selectOptions]="genders">
   </app-input>
+
+  <button type="submit" class="button">SUBMIT</button>
 
 </form>

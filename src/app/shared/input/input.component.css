@@ -1,0 +1,121 @@
+.input-field-group {
+  padding-bottom: 6px;
+}
+
+.input-field {
+  background-color: rgba(0, 0, 0, .06);
+  border-radius: 4px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  width: 280px;
+}
+
+.input-field.is-invalid,
+.input-field.has-info-text {
+  margin-bottom: 0;
+}
+
+.input-field__label {
+  color: rgba(0, 0, 0, .54);
+  font-family: sans-serif;
+  font-size: 16px;
+  top: 20px;
+  left: 16px;
+  pointer-events: none;
+  position: absolute;
+  transform: scale(1);
+  transform-origin: left top;
+  transition: all .18s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform, color;
+}
+
+.input-field__input {
+  background: transparent;
+  border: none;
+  color: rgba(0, 0, 0, .87);
+  font-size: 16px;
+  font-family: sans-serif;
+  height: 100%;
+  padding: 30px 16px 8px 16px;
+  width: 100%;
+
+  /* Fixes bug with select on Chrome on OSX - not receiving padding */
+    -webkit-appearance: none;
+}
+
+.input-field__input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #e0e0e0 inset;
+}
+
+.input-field__input--textarea {
+  margin-top: 30px;
+  padding-top: 0;
+  resize: none;
+}
+
+.input-field__bottom-line {
+  background-color: rgba(0, 0, 0, .54);
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition: background-color .18s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform background-color;
+  width: 100%;
+  z-index: 1;
+}
+
+.input-field__bottom-line.is-active {
+  background-color: blueviolet;
+  transform: scaleX(0);
+}
+
+.input-field.is-focused > .input-field__bottom-line {
+  transform: scaleX(1);
+  transition: transform .18s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.input-field:hover:not(.is-focused):not(.is-invalid) > .input-field__bottom-line {
+  background-color: rgba(0, 0, 0, .87);
+}
+
+.input-field.is-focused > .input-field__label,
+.input-field.is-filled > .input-field__label {
+  transform: scale(.75, .75) translateY(-80%);
+}
+
+.input-field.is-focused > .input-field__label {
+  color: blueviolet;
+}
+
+.input-field.is-invalid, .input-field.has-info-text {
+  margin-bottom: 0;
+}
+
+.input-field.is-invalid > .input-field__label {
+  color: red;
+}
+
+.input-field.is-invalid > .input-field__bottom-line {
+  background-color: red;
+}
+
+.info-message {
+  color: rgba(0, 0, 0, .54);
+  font-family: sans-serif;
+  font-size: 12px;
+  margin: 8px 0 8px 16px;
+}
+
+.textarea-overlay {
+  border-top: 30px solid #e1e1e1;
+  border-bottom: 8px solid #e1e1e1;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  width: 100%;
+}
+
