@@ -46,6 +46,17 @@
     [selectOptions]="genders">
   </app-input>
 
+  <app-input
+    class="container__input"
+    name="bio"
+    type="textarea"
+    labelText="Biography"
+    infoText="Tell us something about yourself"
+    [rows]="5"
+    [form]="exampleForm"
+    [(ngModel)]="user.bio">
+  </app-input>
+
   <button type="submit" class="button">SUBMIT</button>
 
 </form>

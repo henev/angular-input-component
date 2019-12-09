@@ -11,7 +11,8 @@ export class AppComponent  {
     fName: '',
     lName: '',
     age: '',
-    gender: null
+    gender: null,
+    bio: ''
   };
   genders = [
     {id: 1, name: 'Male'}, 
@@ -19,6 +20,6 @@ export class AppComponent  {
   ];
 
   submit() {
-    alert('Form submitted!');
+    alert(`Form submitted from ${this.user.fName} ${this.user.lName}!`,);
   }
 }
