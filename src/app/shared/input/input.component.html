@@ -1,0 +1,105 @@
+<div class="text-field-group {{containerClass}}">
+  <div class="text-field"
+    [class.is-focused]="isFocused"
+    [class.is-calendar-opened]="datepicker.opened"
+    [class.is-filled]="value || value === 0"
+    [class.is-disabled]="disabled"
+    [class.is-invalid]="isInvalid"
+    [class.has-info-text]="infoText"
+    mat-ripple>
+
+    <!-- Text / Password input -->
+    <input *ngIf="type === 'text' || type === 'password'"
+      #input="ngModel"
+      id="{{name}}"
+      class="text-field__input {{inputClass}}"
+      name="{{name}}"
+      type="{{type}}"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (keyup)="onChange($event.target.value.toLowerCase())">
+
+    <!-- Number input -->
+    <input *ngIf="type === 'number'"
+      #input="ngModel"
+      id="{{name}}"
+      class="text-field__input text-field__input--number {{inputClass}}"
+      name="{{name}}"
+      type="number"
+      min="{{appMinValidator}}"
+      max="{{appMaxValidator}}"
+      [appMinValidator]="appMinValidator"
+      [appMaxValidator]="appMaxValidator"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (keyup)="onChange($event)">
+
+    <!-- Textarea input -->
+    <textarea *ngIf="type === 'textarea'"
+      #input="ngModel"
+      id="{{name}}"
+      class="text-field__input text-field__input--textarea {{inputClass}}"
+      name="{{name}}"
+      rows="{{rows}}"
+      [(ngModel)]="value"
+      [readonly]="readonly"
+      [required]="required"
+      [disabled]="disabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (keyup)="onChange($event.target.value.toLowerCase())"></textarea>
+
+    <label *ngIf="labelText" 
+      for="{{name}}" 
+      class="text-field__label {{labelClass}}">
+        {{labelText}}
+      </label>
+
+    <!-- Select input -->
+    <select *ngIf="type === 'select'"
+      #input="ngModel"
+      id="{{name}}"
+      class="text-field__input {{inputClass}}"
+      name="{{name}}"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (keyup)="onChange($event.target.value.toLowerCase())">
+
+      <option *ngIf="placeholder" [disabled]="required" [ngValue]="!value ? value : null">{{placeholder}}</option>
+
+      <option *ngFor="let option of selectOptions"
+        [ngValue]="optionValueKey ? option[optionValueKey] : option">
+
+        {{optionLabelKey ? option[optionLabelKey] : option}}
+
+      </option>
+
+    </select>
+
+    <div class="text-field__bottom-line"></div>
+    <div class="text-field__bottom-line is-active" [style.transform-origin]="bottomLineTransformOrigin"></div>
+  </div>
+
+  <div class="info-message" [hidden]="isInvalid || !infoText">
+    {{infoText}}
+  </div>
+
+  <app-validation-messages [for]="input" [hidden]="!isInvalid">
+    <app-validation-message name="required">This field is required</app-validation-message>
+    <app-validation-message name="appMinValidator">{{labelText}} should be more than {{appMinValidator - 1}}</app-validation-message>
+    <app-validation-message name="appMaxValidator">{{labelText}} should be less than {{appMaxValidator + 1}}</app-validation-message>
+    <app-validation-message name="format">Invalid date format</app-validation-message>
+    <app-validation-message name="minDate">Date should be after {{minDate}}</app-validation-message>
+    <app-validation-message name="maxDate">Date should be before {{maxDate}}</app-validation-message>
+  </app-validation-messages>
+
+</div>
