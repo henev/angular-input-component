@@ -15,7 +15,7 @@
     </label>
 
     <!-- Text / Password input -->
-    <input *ngIf="type === 'text' || type === 'password'"
+    <input *ngIf="type === 'text' || type === 'password' || type === 'email'"
       #input="ngModel"
       id="{{name}}"
       class="input-field__input {{inputClass}}"

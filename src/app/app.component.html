@@ -1,8 +1,7 @@
-<hello name="{{ name }}"></hello>
+<h1>Angular Input Component</h1>
 
 <form #exampleForm="ngForm" [appFormValidator]="exampleForm" (formSubmit)="submit()">
   <app-input
-    class="container__input"
     name="fName"
     type="text"
     labelText="First Name"
@@ -12,7 +11,6 @@
   </app-input>
 
   <app-input
-    class="container__input"
     name="lName"
     type="text"
     labelText="Last Name"
@@ -22,7 +20,6 @@
   </app-input>
 
   <app-input
-    class="container__input"
     name="age"
     type="number"
     labelText="Age"
@@ -47,7 +44,6 @@
   </app-input>
 
   <app-input
-    class="container__input"
     name="bio"
     type="textarea"
     labelText="Biography"
